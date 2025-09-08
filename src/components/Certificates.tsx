@@ -57,7 +57,7 @@ const Certificates = () => {
   };
 
   return (
-    <section id="certificates" className="py-20 bg-muted/20">
+    <section id="certificates" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -71,7 +71,7 @@ const Certificates = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {certificates.map((certificate, index) => (
-              <Card key={index} className="bg-gradient-card border-border/50 hover:shadow-elegant transition-all duration-300 group">
+              <Card key={index} className="bg-card border-border/50 hover:shadow-elegant transition-all duration-300 group">
                 <CardHeader>
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-start gap-3">
@@ -135,7 +135,7 @@ const Certificates = () => {
             <p className="text-muted-foreground mb-4">
               Always expanding my knowledge and staying current with industry trends.
             </p>
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-8">
               <div className="text-center">
                 <div className="text-2xl font-bold text-primary">{certificates.length}</div>
                 <div className="text-sm text-muted-foreground">Certificates</div>
