@@ -66,8 +66,8 @@ const Experience = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Professional <span className="bg-gradient-accent bg-clip-text text-transparent">Experience</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+              Professional <span className="text-earth-dark">Experience</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               My journey in software development through education, internships, and professional growth.
@@ -86,7 +86,7 @@ const Experience = () => {
                       <div className="flex items-center gap-4 text-muted-foreground">
                         <div className="flex items-center gap-1">
                           <Building size={16} />
-                          <span className="font-medium text-primary">{experience.company}</span>
+                          <span className="font-medium text-sage-dark">{experience.company}</span>
                         </div>
                         <div className="flex items-center gap-1">
                           <MapPin size={16} />
@@ -115,7 +115,7 @@ const Experience = () => {
                     <ul className="space-y-2">
                       {experience.achievements.map((achievement, achievementIndex) => (
                         <li key={achievementIndex} className="flex items-start">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-3 flex-shrink-0" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-sage-dark mt-2 mr-3 flex-shrink-0" />
                           <span className="text-muted-foreground text-sm">{achievement}</span>
                         </li>
                       ))}

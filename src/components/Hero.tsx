@@ -16,13 +16,13 @@ const Hero = () => {
           {/* Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight text-foreground">
                 Hi, I'm{' '}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">
+                <span className="text-sage-dark">
                   Fereshteh
                 </span>
               </h1>
-              <h2 className="text-2xl md:text-3xl text-muted-foreground">
+              <h2 className="text-2xl md:text-3xl text-earth-dark">
                 Keitumetse Dimpe
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
@@ -36,7 +36,7 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4">
               <Button 
                 onClick={handleDownloadCV}
-                className="bg-gradient-primary hover:opacity-90 transition-opacity"
+                className="bg-sage-dark hover:bg-sage-dark/90 text-white transition-all duration-300"
                 size="lg"
               >
                 <Download className="mr-2 h-4 w-4" />
@@ -47,7 +47,7 @@ const Hero = () => {
                 variant="outline"
                 size="lg"
                 asChild
-                className="border-primary/20 hover:border-primary hover:bg-primary/10"
+                className="border-sage-dark/30 text-sage-dark hover:border-sage-dark hover:bg-sage-dark/5"
               >
                 <a 
                   href="https://github.com/Keitudimps?tab=repositories" 
@@ -63,7 +63,7 @@ const Hero = () => {
                 variant="outline"
                 size="lg"
                 asChild
-                className="border-accent/20 hover:border-accent hover:bg-accent/10"
+                className="border-earth-dark/30 text-earth-dark hover:border-earth-dark hover:bg-earth-dark/5"
               >
                 <a 
                   href="http://linkedin.com/in/fereshteh-keitumetse-dimpe-4a378b237" 
@@ -79,11 +79,11 @@ const Hero = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">7+</div>
+                <div className="text-2xl font-bold text-sage-dark">7+</div>
                 <div className="text-sm text-muted-foreground">Projects</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-accent">5+</div>
+                <div className="text-2xl font-bold text-earth-dark">5+</div>
                 <div className="text-sm text-muted-foreground">Years Study</div>
               </div>
               <div className="text-center">

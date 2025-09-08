@@ -9,8 +9,9 @@ const Navigation = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Education', href: '#education' },
     { name: 'Experience', href: '#experience' },
+    { name: 'Projects', href: '#projects' },
     { name: 'Certificates', href: '#certificates' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -27,7 +28,7 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50 shadow-soft">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <div className="text-xl font-bold text-sage-dark">
             Fereshteh Dimpe
           </div>
 

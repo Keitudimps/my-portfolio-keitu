@@ -61,8 +61,8 @@ const Certificates = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Certificates & <span className="bg-gradient-primary bg-clip-text text-transparent">Qualifications</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+              Certificates & <span className="text-sage-dark">Qualifications</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Continuous learning and professional development through formal education and industry certifications.
@@ -75,14 +75,14 @@ const Certificates = () => {
                 <CardHeader>
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-start gap-3">
-                      <div className="text-primary mt-1">
+                      <div className="text-sage-dark mt-1">
                         <Award size={24} />
                       </div>
                       <div>
-                        <CardTitle className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                        <CardTitle className="text-lg font-semibold mb-2 group-hover:text-sage-dark transition-colors">
                           {certificate.title}
                         </CardTitle>
-                        <p className="text-accent font-medium">{certificate.issuer}</p>
+                        <p className="text-earth-dark font-medium">{certificate.issuer}</p>
                       </div>
                     </div>
                     <Badge variant={getTypeColor(certificate.type)} className="text-xs">
@@ -114,7 +114,7 @@ const Certificates = () => {
                     variant="outline"
                     size="sm"
                     asChild
-                    className="border-primary/20 hover:border-primary hover:bg-primary/10 w-full"
+                    className="border-sage-dark/30 text-sage-dark hover:border-sage-dark hover:bg-sage-dark/5 w-full"
                   >
                     <a 
                       href={certificate.credentialUrl} 
@@ -137,11 +137,11 @@ const Certificates = () => {
             </p>
             <div className="flex justify-center gap-8">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">{certificates.length}</div>
+                <div className="text-2xl font-bold text-sage-dark">{certificates.length}</div>
                 <div className="text-sm text-muted-foreground">Certificates</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-accent">5+</div>
+                <div className="text-2xl font-bold text-earth-dark">5+</div>
                 <div className="text-sm text-muted-foreground">Years Learning</div>
               </div>
             </div>

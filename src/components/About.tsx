@@ -34,8 +34,8 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              About <span className="bg-gradient-primary bg-clip-text text-transparent">Me</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+              About <span className="text-sage-dark">Me</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Motivated and result-driven Software Developer graduate eager to contribute to 
@@ -46,7 +46,7 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
             <div className="space-y-6">
               <div>
-                <h3 className="text-2xl font-semibold mb-4 text-primary">My Journey</h3>
+                <h3 className="text-2xl font-semibold mb-4 text-sage-dark">My Journey</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   I completed my Advanced Diploma in ICT Applications Development at Cape Peninsula 
                   University of Technology, where I discovered my passion for full-stack development. 

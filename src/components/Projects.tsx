@@ -48,8 +48,8 @@ const Projects = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Featured <span className="bg-gradient-primary bg-clip-text text-transparent">Projects</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+              Featured <span className="text-sage-dark">Projects</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               A showcase of my recent work, demonstrating my ability to build full-stack applications with modern technologies and best practices.
@@ -112,7 +112,7 @@ const Projects = () => {
                     <Button
                       size="sm"
                       asChild
-                      className="flex-1 bg-gradient-primary hover:opacity-90 transition-opacity"
+                      className="flex-1 bg-sage-dark hover:bg-sage-dark/90 text-white transition-colors"
                     >
                       <a 
                         href={project.liveUrl} 
@@ -132,12 +132,12 @@ const Projects = () => {
 
           {/* More Projects Button */}
           <div className="text-center">
-            <h3 className="text-2xl font-bold mb-8">More Projects</h3>
+            <h3 className="text-2xl font-bold mb-8 text-foreground">More Projects</h3>
             <Button
               variant="outline"
               size="lg"
               asChild
-              className="border-primary/30 hover:border-primary hover:bg-primary/5"
+              className="border-sage-dark/30 text-sage-dark hover:border-sage-dark hover:bg-sage-dark/5"
             >
               <a 
                 href="https://github.com/Keitudimps?tab=repositories" 

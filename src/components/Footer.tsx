@@ -28,9 +28,9 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             {/* Brand */}
             <div className="text-center md:text-left">
-              <h3 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
-                Fereshteh Keitumetse Dimpe
-              </h3>
+            <h3 className="text-xl font-bold text-sage-dark mb-2">
+              Fereshteh Keitumetse Dimpe
+            </h3>
               <p className="text-muted-foreground">
                 Software Developer & Problem Solver
               </p>
@@ -44,7 +44,7 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                  className="text-muted-foreground hover:text-sage-dark transition-colors duration-300"
                   aria-label={link.label}
                 >
                   <link.icon size={20} />
@@ -56,7 +56,7 @@ const Footer = () => {
           <div className="mt-8 pt-8 border-t border-border/30 text-center">
             <p className="text-muted-foreground text-sm flex items-center justify-center gap-2">
               © {currentYear} Fereshteh Dimpe. Built with
-              <Heart size={16} className="text-accent fill-current" />
+              <Heart size={16} className="text-earth-dark fill-current" />
               using React & TypeScript
             </p>
           </div>
