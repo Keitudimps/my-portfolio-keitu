@@ -9,11 +9,68 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([
     { 
       id: 1, 
-      text: "Hi! I'm Fereshteh's virtual assistant. How can I help you learn more about her skills and experience?", 
+      text: "Hi! I'm Fereshteh's virtual assistant. Ask me anything about her experience, skills, projects, education, or how to get in touch!", 
       sender: 'bot' 
     }
   ]);
   const [inputValue, setInputValue] = useState('');
+
+  const getDetailedResponse = (question: string) => {
+    const lowerQuestion = question.toLowerCase();
+    
+    // Experience related questions
+    if (lowerQuestion.includes('experience') || lowerQuestion.includes('work') || lowerQuestion.includes('job') || lowerQuestion.includes('csg') || lowerQuestion.includes('capaciti')) {
+      return "Fereshteh is currently working as a Software Developer Intern at CSG, where she develops and maintains web applications using modern frameworks and participates in agile development processes. She's also a Digital Associate at Capaciti, focusing on assistive AI development and ethics. She has hands-on experience with enterprise-level applications and cross-functional team collaboration.";
+    }
+    
+    // Skills and technologies
+    if (lowerQuestion.includes('skill') || lowerQuestion.includes('tech') || lowerQuestion.includes('programming') || lowerQuestion.includes('java') || lowerQuestion.includes('angular') || lowerQuestion.includes('python')) {
+      return "Fereshteh has strong skills in Java Spring Boot, Angular Framework, Python, JavaScript, HTML, and CSS. She's proficient with tools like Azure, Docker, GitHub, Postman, IntelliJ, and Linux Commands. She follows Agile Software Development and Scrum methodologies, and has experience with API Testing and Unit Testing. Her soft skills include team collaboration, problem-solving, communication, and critical thinking.";
+    }
+    
+    // Education questions
+    if (lowerQuestion.includes('education') || lowerQuestion.includes('study') || lowerQuestion.includes('diploma') || lowerQuestion.includes('university') || lowerQuestion.includes('cput')) {
+      return "Fereshteh is currently pursuing an Advanced Diploma in ICT Applications Development at Cape Peninsula University of Technology (expected 2025). She completed her Diploma in ICT Applications Development (2022-2024) and Higher Certificate in ICT (2021) from the same institution. She also holds a National Senior Certificate from Hoerskool F H Odendaal (2020).";
+    }
+    
+    // Projects
+    if (lowerQuestion.includes('project') || lowerQuestion.includes('portfolio') || lowerQuestion.includes('ui generator') || lowerQuestion.includes('resume builder') || lowerQuestion.includes('github')) {
+      return "Fereshteh has built several impressive projects: 1) UI Generator - A dynamic tool that generates tailored designs and provides downloadable specs with React/HTML code, 2) Resume Builder AI - An intelligent tool for crafting professional CVs and cover letters optimized for ATS, 3) Author Portfolio for Stephen King - An immersive digital archive with biographical insights and interactive tools. You can find more projects on her GitHub.";
+    }
+    
+    // Certificates
+    if (lowerQuestion.includes('certificate') || lowerQuestion.includes('certification') || lowerQuestion.includes('course') || lowerQuestion.includes('learning')) {
+      return "Fereshteh has earned certificates in Active Listening: Enhancing Communication Skills from Coursera, focusing on empathy and interpersonal communication. She also completed AI For Everyone by Andrew Ng, covering AI applications, business strategy, and ethics in AI. These complement her formal ICT qualifications.";
+    }
+    
+    // Contact information
+    if (lowerQuestion.includes('contact') || lowerQuestion.includes('email') || lowerQuestion.includes('phone') || lowerQuestion.includes('hire') || lowerQuestion.includes('reach')) {
+      return "You can contact Fereshteh via email at Keitutimpe@gmail.com or phone at 065 852 3666. She's based in Cape Town, South Africa. You can also connect with her on LinkedIn or check out her projects on GitHub. She's available for internships, junior developer positions, and project collaborations.";
+    }
+    
+    // Location
+    if (lowerQuestion.includes('location') || lowerQuestion.includes('where') || lowerQuestion.includes('cape town') || lowerQuestion.includes('south africa')) {
+      return "Fereshteh is based in Cape Town, South Africa. She completed her studies at Cape Peninsula University of Technology and is currently working locally at CSG and Capaciti.";
+    }
+    
+    // About/Background
+    if (lowerQuestion.includes('about') || lowerQuestion.includes('background') || lowerQuestion.includes('who') || lowerQuestion.includes('journey')) {
+      return "Fereshteh Keitumetse Dimpe is a motivated and result-driven Software Developer graduate. She discovered her passion for software development during her ICT studies at Cape Peninsula University of Technology. She's constantly learning new technologies, from AI/ML integration to modern frameworks, with a goal to build innovative applications that solve real-world problems and provide exceptional user experiences.";
+    }
+    
+    // CV/Resume
+    if (lowerQuestion.includes('cv') || lowerQuestion.includes('resume') || lowerQuestion.includes('download')) {
+      return "You can download Fereshteh's CV directly from the homepage by clicking the 'Download CV' button. It contains detailed information about her experience, education, skills, and projects.";
+    }
+    
+    // AI/Technology interests
+    if (lowerQuestion.includes('ai') || lowerQuestion.includes('artificial intelligence') || lowerQuestion.includes('machine learning') || lowerQuestion.includes('ml')) {
+      return "Fereshteh has a strong interest in AI and machine learning. She's currently working on assistive AI development at Capaciti, focusing on the ethics that come with AI implementation. She's completed courses on AI applications and continues experimenting with AI/ML integration in her projects.";
+    }
+    
+    // Default response for unmatched questions
+    return "That's an interesting question! Based on the information available on this portfolio, I can tell you about Fereshteh's experience (CSG & Capaciti), skills (Java, Angular, Python), education (CPUT diplomas), projects (UI Generator, Resume Builder AI), certificates, or how to contact her. Feel free to ask about any specific aspect you'd like to know more about!";
+  };
 
   const handleSendMessage = () => {
     if (!inputValue.trim()) return;
@@ -21,22 +78,9 @@ const Chatbot = () => {
     const userMessage = { id: Date.now(), text: inputValue, sender: 'user' };
     setMessages(prev => [...prev, userMessage]);
     
-    // Simple bot responses
+    // Enhanced bot response
     setTimeout(() => {
-      let botResponse = "Thank you for your question! ";
-      
-      if (inputValue.toLowerCase().includes('experience')) {
-        botResponse += "Fereshteh has experience as a Software Developer Intern at CSG and is currently a Digital Associate at Capaciti. She's passionate about AI/ML and modern frameworks.";
-      } else if (inputValue.toLowerCase().includes('skills') || inputValue.toLowerCase().includes('tech')) {
-        botResponse += "She's skilled in Java Spring Boot, Angular, Python, JavaScript, Docker, and Agile methodologies. Check out the Skills section for more details!";
-      } else if (inputValue.toLowerCase().includes('contact') || inputValue.toLowerCase().includes('hire')) {
-        botResponse += "You can reach out through the Contact form below or connect on LinkedIn. She's based in Cape Town and open to opportunities!";
-      } else if (inputValue.toLowerCase().includes('projects')) {
-        botResponse += "She's built several projects including a UI Generator, Resume Builder AI, and an Author Portfolio. Each demonstrates different technical skills!";
-      } else {
-        botResponse += "That's a great question! Feel free to explore the different sections of her portfolio or ask about her skills, experience, or projects.";
-      }
-
+      const botResponse = getDetailedResponse(inputValue);
       const botMessage = { id: Date.now() + 1, text: botResponse, sender: 'bot' };
       setMessages(prev => [...prev, botMessage]);
     }, 1000);
@@ -100,7 +144,7 @@ const Chatbot = () => {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Ask about skills, projects..."
+                placeholder="Ask about experience, skills, projects..."
                 className="flex-1 text-sm"
               />
               <Button 
