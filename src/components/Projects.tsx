@@ -35,7 +35,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}

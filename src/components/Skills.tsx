@@ -51,7 +51,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20 bg-gradient-to-br from-neutral-50 to-neutral-100">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">

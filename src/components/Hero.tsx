@@ -4,7 +4,7 @@ import heroImage from '@/assets/hero-image1.jpeg';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-16">
+    <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-16 bg-gradient-to-br from-stone-50 to-stone-100">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}

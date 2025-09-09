@@ -8,6 +8,8 @@ import Projects from '@/components/Projects';
 import Certificates from '@/components/Certificates';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import Chatbot from '@/components/Chatbot';
+import ScrollToTop from '@/components/ScrollToTop';
 
 const Index = () => {
   return (
@@ -22,6 +24,8 @@ const Index = () => {
       <Certificates />
       <Contact />
       <Footer />
+      <Chatbot />
+      <ScrollToTop />
     </div>
   );
 };
