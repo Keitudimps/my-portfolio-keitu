@@ -1,14 +1,8 @@
 import { Download, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-image.jpg';
+import heroImage from '@/assets/hero-image1.jpeg';
 
 const Hero = () => {
-  const handleDownloadCV = () => {
-    // This would trigger the CV download
-    // For now, we'll just show an alert
-    alert('CV download would be triggered here. Please add your PDF file to the public folder.');
-  };
-
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-16">
       <div className="container mx-auto px-4">
@@ -35,12 +29,14 @@ const Hero = () => {
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
               <Button 
-                onClick={handleDownloadCV}
+                asChild
                 className="bg-sage-dark hover:bg-sage-dark/90 text-white transition-all duration-300"
                 size="lg"
               >
-                <Download className="mr-2 h-4 w-4" />
-                Download CV
+                <a href="/cv.pdf" download>
+                  <Download className="mr-2 h-4 w-4" />
+                  Download CV
+                </a>
               </Button>
               
               <Button
@@ -106,6 +102,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      
     </section>
   );
 };

@@ -48,9 +48,11 @@ const About = () => {
               <div>
                 <h3 className="text-2xl font-semibold mb-4 text-sage-dark">My Journey</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  I completed my Advanced Diploma in ICT Applications Development at Cape Peninsula 
-                  University of Technology, where I discovered my passion for full-stack development. 
-                  Currently working as a Software Developer Intern at CSG and Digital Associate at Capaciti.
+                  I completing my Advanced Diploma in Information and Communication Techmology at Cape Peninsula 
+                  University of Technology, started with  higher certficate in this same feild and that is where 
+                  I discovered my passion for software development. 
+                  I have worked as a Software Enginer Intern at CSG Internation and currently working as Digital 
+                  Associate at Capaciti where I'm diving into assistive AI development and the ethics that come with it.
                 </p>
               </div>
               

@@ -2,43 +2,34 @@ import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import ecommerceImage from '@/assets/ecommerce-project.jpg';
-import taskManagementImage from '@/assets/task-management-project.jpg';
-import weatherImage from '@/assets/weather-project.jpg';
-import portfolioImage from '@/assets/portfolio-project.jpg';
+import ecommerceImage from '@/assets/ecommerce-project1.jpg.png';
+import taskManagementImage from '@/assets/task-management-project1.png';
+import weatherImage from '@/assets/weather-project1.png';
 
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
+      title: "UI Generator",
+      description: "A dynamic tool that empowers users to define the UI they need, automatically generates tailored designs, and provides downloadable design specifications along with code in either React or HTML/CSS. It features a live preview for instant feedback and customization.",
       image: ecommerceImage,
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      githubUrl: "https://github.com/Keitudimps",
-      liveUrl: "#", // Replace with actual URL
+      technologies: ["Vite","TypeScript","React","shadcn-ui","Tailwind CSS"],
+      githubUrl: "https://github.com/Keitudimps/genmind-ui-ai-forge.git",
+      liveUrl: "https://app--gen-mind-6309a9a3.base44.app/", 
     },
     {
-      title: "Task Management App",
-      description: "Collaborative project management tool with real-time updates, team chat, and progress tracking.",
+      title: "Resume Builder AI",
+      description: "An intelligent resume-building tool that helps users craft professional CVs, generate tailored cover letters, and ensure their documents are optimized for Applicant Tracking Systems (ATS). Users can choose from multiple design templates to suit their style and download their final documents with ease.",
       image: taskManagementImage,
-      technologies: ["Vue.js", "Firebase", "Tailwind"],
-      githubUrl: "https://github.com/Keitudimps",
-      liveUrl: "#", // Replace with actual URL
+      technologies: ["Base 44"],
+      githubUrl: "", // ❌ No code repo for this one
+      liveUrl: "https://app--resu-mate-1dd2b2b1.base44.app/Home", 
     },
     {
-      title: "Weather Dashboard",
-      description: "Interactive weather application with location-based forecasts and data visualization.",
+      title: "Author Portfolio - Stephen King",
+      description: "An immersive digital archive of Stephen King’s literary universe. This portfolio features a curated selection of his novels, short stories, and screen adaptations, organized by genre and chronology. It includes biographical insights, thematic breakdowns, and interactive tools for fans and researchers.",
       image: weatherImage,
       technologies: ["JavaScript", "API Integration", "Chart.js"],
-      githubUrl: "https://github.com/Keitudimps",
-      liveUrl: "#", // Replace with actual URL
-    },
-    {
-      title: "Portfolio Website",
-      description: "Personal portfolio website showcasing projects and skills with modern design.",
-      image: portfolioImage,
-      technologies: ["React", "TypeScript", "Tailwind CSS"],
-      githubUrl: "https://github.com/Keitudimps",
+      githubUrl: "https://github.com/Keitudimps/king-kingdom-chronicles.git",
       liveUrl: "#", // Replace with actual URL
     }
   ];
@@ -47,18 +38,23 @@ const Projects = () => {
     <section id="projects" className="py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
+          {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Featured <span className="text-sage-dark">Projects</span>
+               <span className="text-sage-dark">Projects</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               A showcase of my recent work, demonstrating my ability to build full-stack applications with modern technologies and best practices.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          {/* Projects Grid */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
             {projects.map((project, index) => (
-              <Card key={index} className="overflow-hidden border-border/50 hover:shadow-elegant transition-all duration-300 group bg-card">
+              <Card 
+                key={index} 
+                className="overflow-hidden border-border/50 hover:shadow-elegant transition-all duration-300 group bg-card"
+              >
                 {/* Project Image */}
                 <div className="aspect-video overflow-hidden">
                   <img
@@ -92,22 +88,24 @@ const Projects = () => {
 
                   {/* Action Buttons */}
                   <div className="flex gap-3">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      asChild
-                      className="flex-1 border-foreground/20 hover:bg-foreground hover:text-background transition-colors"
-                    >
-                      <a 
-                        href={project.githubUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center"
+                    {project.githubUrl && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        asChild
+                        className="flex-1 border-foreground/20 hover:bg-foreground hover:text-background transition-colors"
                       >
-                        <Github className="mr-2 h-4 w-4" />
-                        Code
-                      </a>
-                    </Button>
+                        <a 
+                          href={project.githubUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center"
+                        >
+                          <Github className="mr-2 h-4 w-4" />
+                          Code
+                        </a>
+                      </Button>
+                    )}
                     
                     <Button
                       size="sm"
@@ -151,6 +149,14 @@ const Projects = () => {
           </div>
         </div>
       </div>
+      {/* Section End Divider */}
+    <div className="flex justify-center my-8">
+      <div className="flex items-center gap-2 text-muted-foreground">
+        <span className="h-px w-24 bg-border" />
+        <span className="text-xs uppercase tracking-widest">End of Projects</span>
+        <span className="h-px w-24 bg-border" />
+      </div>
+    </div>
     </section>
   );
 };

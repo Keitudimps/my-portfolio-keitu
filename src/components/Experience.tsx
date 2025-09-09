@@ -31,20 +31,6 @@ const Experience = () => {
         "Developed skills in agile methodologies and team collaboration"
       ],
       technologies: ["JavaScript", "Python", "React", "Node.js"]
-    },
-    {
-      title: "ICT Applications Development Student",
-      company: "Cape Peninsula University of Technology",
-      location: "Cape Town, South Africa",
-      period: "2019 - 2023",
-      type: "Education",
-      description: "Completed Advanced Diploma in ICT Applications Development, building a strong foundation in programming, software engineering, and system design.",
-      achievements: [
-        "Graduated with comprehensive knowledge of software development",
-        "Completed multiple practical projects and assignments",
-        "Gained experience in various programming languages and frameworks"
-      ],
-      technologies: ["Java", "C#", ".NET", "SQL", "Web Development"]
     }
   ];
 
