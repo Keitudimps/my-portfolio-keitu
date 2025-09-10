@@ -1,8 +1,8 @@
-import { ExternalLink, Star, Calendar, FileText } from "lucide-react";
+import { ExternalLink, Star, Calendar } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef, useEffect } from "react"; // Import useEffect
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const certificates = [
@@ -138,189 +138,143 @@ const certificates = [
 		image: "/certificates/proff-email.png",
 	},
 ];
-
-const getTypeColor = (type: string) => {
-	switch (type) {
-		case "Professional":
-			return "secondary";
-		default:
-			return "default";
-	}
-};
+const getTypeColor = (type: string) => (type === "Professional" ? "secondary" : "default");
 
 const QualificationsAndCertificates = () => {
-	const [startIndex, setStartIndex] = useState(0);
-	const [isAnimating, setIsAnimating] = useState(false); // Track animation state
-	const containerRef = useRef<HTMLDivElement>(null);
+  const cardsPerSlide = 3;
+  const totalCertificates = certificates.length;
+  const [startIndex, setStartIndex] = useState(0);
 
-	const visibleCertificates = certificates.slice(startIndex, startIndex + 3);
+  // Get the current group of 3 (or less at the end)
+  const visibleCertificates = certificates.slice(startIndex, startIndex + cardsPerSlide);
 
-	const handleNext = () => {
-		if (isAnimating) return; // Prevent multiple clicks during animation
-		setIsAnimating(true);
-		setTimeout(() => {
-			setIsAnimating(false);
-		}, 500); // Match the animation duration
+  const handleNext = () => {
+    setStartIndex((prev) =>
+      prev + cardsPerSlide >= totalCertificates
+        ? prev // stop at the end
+        : prev + cardsPerSlide
+    );
+  };
 
-		setStartIndex((prevIndex) =>
-			prevIndex + 3 >= certificates.length ? 0 : prevIndex + 3
-		);
-	};
+  const handlePrev = () => {
+    setStartIndex((prev) => (prev - cardsPerSlide < 0 ? 0 : prev - cardsPerSlide));
+  };
 
-	const handlePrev = () => {
-		if (isAnimating) return; // Prevent multiple clicks during animation
-		setIsAnimating(true);
-		setTimeout(() => {
-			setIsAnimating(false);
-		}, 500); // Match the animation duration
+  return (
+    <section id="qualifications-certificates" className="py-20 bg-stone-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            Certificates
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            A curated showcase of my professional certifications.
+          </p>
+        </div>
 
-		setStartIndex((prevIndex) =>
-			prevIndex - 3 < 0
-				? certificates.length - (certificates.length % 3 === 0 ? 3 : certificates.length % 3)
-				: prevIndex - 3
-		);
-	};
+        <div className="relative">
+          {/* Prev/Next Buttons */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
+            <Button
+              onClick={handlePrev}
+              disabled={startIndex === 0}
+              className="rounded-full p-2 shadow hover:bg-stone-100"
+            >
+              &#10094;
+            </Button>
+          </div>
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10">
+            <Button
+              onClick={handleNext}
+              disabled={startIndex + cardsPerSlide >= totalCertificates}
+              className="rounded-full p-2 shadow hover:bg-stone-100"
+            >
+              &#10095;
+            </Button>
+          </div>
 
-	// Automatically advance the carousel every 5 seconds
-	useEffect(() => {
-		const intervalId = setInterval(() => {
-			handleNext();
-		}, 5000);
+          {/* Carousel */}
+          <div className="flex gap-6">
+            <AnimatePresence initial={false}>
+              {visibleCertificates.map((c, index) => (
+                <motion.div
+                  key={c.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex-shrink-0 w-[calc(33.333%-1rem)] flex flex-col"
+                >
+                  <Card className="bg-gradient-to-br from-white to-stone-50 border border-border/30 hover:shadow-xl transition-all duration-300 rounded-2xl flex flex-col h-full">
+                    {/* Image */}
+                    <div className="w-full h-36 flex justify-center mt-2">
+                      <img
+                        src={c.image}
+                        alt={c.title}
+                        className="w-full h-full object-cover rounded-lg shadow-md border border-stone-200"
+                      />
+                    </div>
 
-		return () => clearInterval(intervalId); // Clean up the interval on unmount
-	}, [startIndex]); // Restart the timer when the index changes
+                    {/* Header */}
+                    <CardHeader className="mt-2">
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex items-start gap-2">
+                          <Star className="text-stone-600 mt-1" size={20} />
+                          <div>
+                            <CardTitle className="text-md font-semibold mb-1 text-stone-800">
+                              {c.title}
+                            </CardTitle>
+                            <p className="text-stone-700 text-sm font-medium">{c.issuer}</p>
+                          </div>
+                        </div>
+                        <Badge variant={getTypeColor(c.type)} className="text-xs">
+                          {c.type}
+                        </Badge>
+                      </div>
+                      <div className="flex items-center gap-1 text-muted-foreground mt-1">
+                        <Calendar size={14} />
+                        <span className="text-sm">{c.date}</span>
+                      </div>
+                    </CardHeader>
 
-	return (
-		<section id="qualifications-certificates" className="py-20 bg-stone-50">
-			<div className="container mx-auto px-4">
-				<div className="max-w-7xl mx-auto">
-					{/* Section Header */}
-					<div className="text-center mb-16">
-						<h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-							Certificates
-						</h2>
-						<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-							A curated showcase of my professional
-							certifications.
-						</p>
-					</div>
-
-					{/* Certificates Carousel */}
-					<div>
-
-						<div className="relative">
-							{/* Carousel Controls */}
-							<div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
-								<Button
-									onClick={handlePrev}
-									disabled={isAnimating}
-									className="rounded-full p-2 shadow hover:bg-stone-100"
-								>
-									&#10094;
-								</Button>
-							</div>
-
-							<div className="absolute right-0 top-1/2 -translate-y-1/2 z-10">
-								<Button
-									onClick={handleNext}
-									disabled={isAnimating}
-									className="rounded-full p-2 shadow hover:bg-stone-100"
-								>
-									&#10095;
-								</Button>
-							</div>
-
-							{/* Carousel Container */}
-							<div
-								ref={containerRef}
-								className="flex gap-8 overflow-hidden transition-transform duration-500 ease-in-out"
-							>
-								{visibleCertificates.map((c, index) => (
-									<motion.div
-										key={index}
-										className="flex-shrink-0 w-full md:w-[calc(100%/3-1rem)]" // Adjusted width
-										initial={{ opacity: 0, scale: 0.8 }}
-										animate={{ opacity: 1, scale: 1 }}
-										exit={{ opacity: 0, scale: 0.8 }}
-										transition={{ duration: 0.3 }}
-									>
-										<Card className="bg-gradient-to-br from-white to-stone-50 border border-border/30 hover:shadow-xl transition-all duration-300 rounded-2xl p-4">
-											<CardHeader>
-												<div className="flex items-start justify-between gap-2">
-													<div className="flex items-start gap-2">
-														<Star className="text-stone-600 mt-1" size={20} />
-														<div>
-															<CardTitle className="text-md font-semibold mb-1 text-stone-800">
-																{c.title}
-															</CardTitle>
-															<p className="text-stone-700 text-sm font-medium">
-																{c.issuer}
-															</p>
-														</div>
-													</div>
-													<Badge
-														variant={getTypeColor(c.type)}
-														className="text-xs"
-													>
-														{c.type}
-													</Badge>
-												</div>
-												<div className="flex items-center gap-1 text-muted-foreground mt-1">
-													<Calendar size={14} />
-													<span className="text-sm">{c.date}</span>
-												</div>
-											</CardHeader>
-											<CardContent className="space-y-4">
-												<div className="flex justify-center">
-													<img
-														src={c.image}
-														alt={c.title}
-														className="w-60 h-40 object-cover rounded-lg shadow-md border border-stone-200 transition-transform hover:scale-105"
-													/>
-												</div>
-												<p className="text-muted-foreground text-sm leading-relaxed">
-													{c.description}
-												</p>
-												<div>
-													<h4 className="font-semibold mb-2 text-sm">
-														Skills Covered:
-													</h4>
-													<div className="flex flex-wrap gap-1">
-														{c.skills.map((skill, i) => (
-															<Badge key={i} variant="outline" className="text-xs">
-																{skill}
-															</Badge>
-														))}
-													</div>
-												</div>
-												<div className="flex justify-center mt-2">
-													<Button
-														asChild
-														variant="outline"
-														size="sm"
-														className="border-stone-400 text-stone-700 hover:border-stone-700 hover:bg-stone-100"
-													>
-														<a
-															href={c.link}
-															target="_blank"
-															rel="noopener noreferrer"
-														>
-															<ExternalLink className="mr-1 h-4 w-4" />
-															View Certificate
-														</a>
-													</Button>
-												</div>
-											</CardContent>
-										</Card>
-									</motion.div>
-								))}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+                    {/* Content */}
+                    <CardContent className="flex flex-col justify-between flex-1 space-y-3">
+                      <div>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-2">
+                          {c.description}
+                        </p>
+                        <h4 className="font-semibold mb-2 text-sm">Skills Covered:</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {c.skills.map((skill, i) => (
+                            <Badge key={i} variant="outline" className="text-xs">
+                              {skill}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex justify-center mt-2">
+                        <Button
+                          asChild
+                          variant="outline"
+                          size="sm"
+                          className="border-stone-400 text-stone-700 hover:border-stone-700 hover:bg-stone-100"
+                        >
+                          <a href={c.link} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="mr-1 h-4 w-4" />
+                            View Certificate
+                          </a>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default QualificationsAndCertificates;
