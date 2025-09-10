@@ -2,16 +2,17 @@ import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import ecommerceImage from '@/assets/ecommerce-project1.jpg.png';
-import taskManagementImage from '@/assets/task-management-project1.png';
-import weatherImage from '@/assets/weather-project1.png';
+import UIGeneratorImage from '@/assets/UI-generator.png';
+import resumeImage from '@/assets/resume.png';
+import AuthorImage from '@/assets/author.png';
+import { a } from 'node_modules/framer-motion/dist/types.d-Cjd591yU';
 
 const Projects = () => {
   const projects = [
     {
       title: "UI Generator",
       description: "A dynamic tool that empowers users to define the UI they need, automatically generates tailored designs, and provides downloadable design specifications along with code in either React or HTML/CSS. It features a live preview for instant feedback and customization.",
-      image: ecommerceImage,
+      image: UIGeneratorImage,
       technologies: ["Vite","TypeScript","React","shadcn-ui","Tailwind CSS"],
       githubUrl: "https://github.com/Keitudimps/genmind-ui-ai-forge.git",
       liveUrl: "https://app--gen-mind-6309a9a3.base44.app/", 
@@ -19,18 +20,18 @@ const Projects = () => {
     {
       title: "Resume Builder AI",
       description: "An intelligent resume-building tool that helps users craft professional CVs, generate tailored cover letters, and ensure their documents are optimized for Applicant Tracking Systems (ATS). Users can choose from multiple design templates to suit their style and download their final documents with ease.",
-      image: taskManagementImage,
+      image: resumeImage,
       technologies: ["Base 44"],
-      githubUrl: "", // ❌ No code repo for this one
+      githubUrl: "", // No code repo for this one
       liveUrl: "https://app--resu-mate-1dd2b2b1.base44.app/Home", 
     },
     {
       title: "Author Portfolio - Stephen King",
       description: "An immersive digital archive of Stephen King’s literary universe. This portfolio features a curated selection of his novels, short stories, and screen adaptations, organized by genre and chronology. It includes biographical insights, thematic breakdowns, and interactive tools for fans and researchers.",
-      image: weatherImage,
-      technologies: ["JavaScript", "API Integration", "Chart.js"],
+      image: AuthorImage,
+      technologies: ["TypeScript","React", "CSS"],
       githubUrl: "https://github.com/Keitudimps/king-kingdom-chronicles.git",
-      liveUrl: "#", // Replace with actual URL
+      liveUrl: "https://king-kingdom-chronicles.lovable.app/", 
     }
   ];
 
