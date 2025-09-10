@@ -4,20 +4,7 @@ import { Badge } from '@/components/ui/badge';
 
 const Experience = () => {
   const experiences = [
-    {
-      title: "Software Engineer Intern",
-      company: "CSG",
-      location: "Cape Town, South Africa",
-      period: "2024 - Present",
-      type: "Internship",
-      description: "Contributing to software development projects, gaining hands-on experience with enterprise-level applications and collaborating with senior developers.",
-      achievements: [
-        "Developed and maintained web applications using modern frameworks",
-        "Participated in code reviews and agile development processes",
-        "Collaborated with cross-functional teams on project deliverables"
-      ],
-      technologies: ["Java", "Spring Boot", "Angular", "SQL"]
-    },
+
     {
       title: "Digital Associate",
       company: "Capaciti",
@@ -31,15 +18,29 @@ const Experience = () => {
         "Developed skills in agile methodologies and team collaboration"
       ],
       technologies: ["JavaScript", "Python", "React", "Node.js"]
+    },
+    {
+      title: "Software Engineer Intern",
+      company: "CSG",
+      location: "Cape Town, South Africa",
+      period: "July 2024 - December 2024",
+      type: "Internship",
+      description: "Contributing to software development projects, gaining hands-on experience with enterprise-level applications and collaborating with senior developers.",
+      achievements: [
+        "Developed and maintained web applications using modern frameworks",
+        "Participated in code reviews and agile development processes",
+        "Collaborated with cross-functional teams on project deliverables"
+      ],
+      technologies: ["Java", "Spring Boot", "Angular", "SQL"]
     }
   ];
 
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'Internship':
-        return 'default';
-      case 'Associate Program':
         return 'secondary';
+      case 'Associate Program':
+        return 'default';
       case 'Education':
         return 'outline';
       default:
