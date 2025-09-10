@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Download, Github, Linkedin } from 'lucide-react';
+import {Download , Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-image1.jpeg';
 

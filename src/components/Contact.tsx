@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';import {Download} from 'lucide-react';
 
 const Contact = () => {
   const contactInfo = [
@@ -123,6 +123,16 @@ const Contact = () => {
                     LinkedIn
                   </a>
                 </Button>
+                <Button
+                asChild
+                className="bg-sage-dark hover:bg-sage-dark/90 text-white transition-all duration-300"
+                size="lg"
+              >
+                <a href="/cv.pdf" download>
+                  <Download className="mr-2 h-4 w-4" />
+                  Download CV
+                </a>
+              </Button>
               </div>
             </div>
           </div>
