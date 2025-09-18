@@ -236,6 +236,9 @@ const QualificationsAndCertificates = () => {
                         src={c.image}
                         alt={c.title}
                         className="w-full h-full object-cover rounded-lg shadow-md border border-stone-200"
+                        loading="lazy"
+                        width="320"
+                        height="180"
                       />
                     </div>
 

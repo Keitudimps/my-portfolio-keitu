@@ -124,6 +124,10 @@ const Hero = () => {
                 src={heroImage}
                 alt="Fereshteh's workspace - a modern development environment"
                 className="w-full h-auto object-cover"
+                fetchPriority="high"
+                loading="eager"
+                width="600"
+                height="400"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
             </div>

@@ -52,6 +52,9 @@ const About = () => {
                 src={graduationImage}
                 alt="Graduation" 
                 className="mt-30 rounded-2xl shadow-lg w-full max-w-sm object-cover"
+                loading="lazy"
+                width="384"
+                height="570"
               />
             </div>
 

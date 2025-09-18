@@ -2,10 +2,9 @@ import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import UIGeneratorImage from '@/assets/UI-generator.png';
-import resumeImage from '@/assets/resume.png';
-import AuthorImage from '@/assets/author.png';
-import { a } from 'node_modules/framer-motion/dist/types.d-Cjd591yU';
+import UIGeneratorImage from '@/assets/UI-generator-optimized.webp';
+import resumeImage from '@/assets/resume-optimized.webp';
+import AuthorImage from '@/assets/author-optimized.webp';
 
 const Projects = () => {
   const projects = [
@@ -27,7 +26,7 @@ const Projects = () => {
     },
     {
       title: "Author Portfolio - Stephen King",
-      description: "An immersive digital archive of Stephen King’s literary universe. This portfolio features a curated selection of his novels, short stories, and screen adaptations, organized by genre and chronology. It includes biographical insights, thematic breakdowns, and interactive tools for fans and researchers.",
+      description: "An immersive digital archive of Stephen King's literary universe. This portfolio features a curated selection of his novels, short stories, and screen adaptations, organized by genre and chronology. It includes biographical insights, thematic breakdowns, and interactive tools for fans and researchers.",
       image: AuthorImage,
       technologies: ["TypeScript","React", "CSS"],
       githubUrl: "https://github.com/Keitudimps/king-kingdom-chronicles.git",
@@ -62,6 +61,9 @@ const Projects = () => {
                     src={project.image}
                     alt={`${project.title} preview`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    width="400"
+                    height="300"
                   />
                 </div>
                 
