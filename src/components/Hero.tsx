@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import {Download , Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-image1.jpeg';
+import heroImage from '@/assets/hero-image-optimized.webp';
 
 const Hero = () => {
   const text = "Aspiring Software Engineer";

@@ -1,6 +1,6 @@
 import { Code, Lightbulb, Zap, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import graduationImage from '@/assets/graduation.jpeg';
+import graduationImage from '@/assets/graduation-optimized.webp';
 
 const About = () => {
   const highlights = [
