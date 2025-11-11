@@ -21,7 +21,7 @@ const Projects = () => {
       description: "An intelligent resume-building tool that helps users craft professional CVs, generate tailored cover letters, and ensure their documents are optimized for Applicant Tracking Systems (ATS). Users can choose from multiple design templates to suit their style and download their final documents with ease.",
       image: resumeImage,
       technologies: ["Base 44"],
-      githubUrl: "", // No code repo for this one
+      githubUrl: "http://github.com/Keitudimps/GenMind.git",
       liveUrl: "https://app--resu-mate-1dd2b2b1.base44.app/Home", 
     },
     {
