@@ -74,7 +74,7 @@ const Hero = () => {
                 className="border-sage-dark/30 text-sage-dark hover:border-sage-dark hover:bg-sage-dark/5"
               >
                 <a
-                  href="https://github.com/Keitudimps?tab=repositories"
+                  href="https://github.com/Keitudimps"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
