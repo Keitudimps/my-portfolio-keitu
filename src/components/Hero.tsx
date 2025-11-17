@@ -63,7 +63,7 @@ const Hero = () => {
               >
                 <a href="/cv.pdf" download>
                   <Download className="mr-2 h-4 w-4" />
-                  Download CV
+                  Download Resume
                 </a>
               </Button>
 
